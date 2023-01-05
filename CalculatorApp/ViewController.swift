@@ -21,12 +21,37 @@ final class ViewController: UIViewController {
     }
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         let number = Int(sender.currentTitle!)!
-        inputNumber
-        ResultLabel.text =
     }
+    
+
+
     
 }
 
 private extension ViewController {
+    
+    @IBAction func divideButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func minusButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func multiplyButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func plusButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func resultButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func operButtonTapped(_ sender: UIButton) {
+        
+    }
     
 }

@@ -71,6 +71,10 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="divide"/>
+                                                        <connections>
+                                                            <action selector="divideButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="PdO-by-d57"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="D4w-P9-zko"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -124,6 +128,10 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus"/>
+                                                        <connections>
+                                                            <action selector="minusButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="QTM-06-R9e"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Ehr-MT-X3A"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -177,6 +185,10 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="multiple"/>
+                                                        <connections>
+                                                            <action selector="multiplyButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="63q-5Q-Zuk"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="3ez-jB-YL7"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -213,6 +225,10 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus"/>
+                                                        <connections>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="5FU-ea-GhB"/>
+                                                            <action selector="plusButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Abo-cp-baa"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY7-5e-irm">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
@@ -222,6 +238,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="result"/>
+                                                        <connections>
+                                                            <action selector="resultButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Uea-g5-KpN"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
