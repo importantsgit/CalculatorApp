@@ -13,9 +13,9 @@ final class AppApperance {
             appearance.shadowColor = UIColor.clear
             
             // 바 텍스트 색상
-            appearance.titleTextAttributes = [.foregroundColor: UIColor.systemPurple]
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemPurple]
-            UINavigationBar.appearance().tintColor = .systemPurple
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().tintColor = .white
             // 바 색상
             appearance.backgroundColor = .none
             
