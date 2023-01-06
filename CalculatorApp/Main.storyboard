@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z6B-2e-5aY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -31,8 +31,8 @@
                                                             <constraint firstAttribute="width" constant="75" id="yOY-Kg-Mdy"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="7"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="7"/>
                                                         <connections>
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Ji7-2J-cd3"/>
                                                         </connections>
@@ -73,7 +73,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="divide"/>
                                                         <connections>
                                                             <action selector="divideButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="PdO-by-d57"/>
-                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="D4w-P9-zko"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -195,17 +194,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAI-53-YGa">
                                                 <rect key="frame" x="15.666666666666657" y="325" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugh-Es-fjT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="TVZ-05-MqS"/>
-                                                            <constraint firstAttribute="width" constant="75" id="sKc-dv-eku"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="back"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-yK-zNJ">
-                                                        <rect key="frame" x="85" y="0.0" width="75" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="M45-wC-HMq"/>
                                                             <constraint firstAttribute="height" constant="75" id="q2c-nU-WK8"/>
@@ -215,6 +205,19 @@
                                                         <state key="normal" title="0"/>
                                                         <connections>
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="U0E-XP-ejP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqq-p3-sDI">
+                                                        <rect key="frame" x="85" y="0.0" width="75" height="75"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="sqE-g2-QZU"/>
+                                                            <constraint firstAttribute="height" constant="75" id="un7-Lh-fqS"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="AC"/>
+                                                        <connections>
+                                                            <action selector="allClearButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="nSN-6W-LrQ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-AP-XY0">
@@ -255,18 +258,8 @@
                                     <constraint firstItem="GMm-Zd-k2a" firstAttribute="top" secondItem="M9b-8l-Inf" secondAttribute="top" id="rIn-wY-NSd"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqq-p3-sDI">
-                                <rect key="frame" x="32" y="59" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="sqE-g2-QZU"/>
-                                    <constraint firstAttribute="height" constant="75" id="un7-Lh-fqS"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="AC"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC0-ET-xcT">
-                                <rect key="frame" x="218" y="304.66666666666669" width="121" height="57.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC0-ET-xcT">
+                                <rect key="frame" x="339" y="362" width="0.0" height="0.0"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -279,23 +272,20 @@
                             <constraint firstItem="VJm-Tl-2fK" firstAttribute="trailing" secondItem="M9b-8l-Inf" secondAttribute="trailing" constant="16" id="0m8-gl-Mif"/>
                             <constraint firstItem="VJm-Tl-2fK" firstAttribute="bottom" secondItem="M9b-8l-Inf" secondAttribute="bottom" constant="32" id="EGe-2L-nZj"/>
                             <constraint firstItem="VJm-Tl-2fK" firstAttribute="trailing" secondItem="BC0-ET-xcT" secondAttribute="trailing" constant="54" id="TZ7-wV-k0Q"/>
-                            <constraint firstItem="kqq-p3-sDI" firstAttribute="top" secondItem="VJm-Tl-2fK" secondAttribute="top" id="cip-6D-G8h"/>
-                            <constraint firstItem="kqq-p3-sDI" firstAttribute="leading" secondItem="VJm-Tl-2fK" secondAttribute="leading" constant="32" id="meP-Xu-NM3"/>
                             <constraint firstItem="M9b-8l-Inf" firstAttribute="leading" secondItem="VJm-Tl-2fK" secondAttribute="leading" constant="16" id="n1V-mX-hBl"/>
                             <constraint firstItem="M9b-8l-Inf" firstAttribute="top" secondItem="BC0-ET-xcT" secondAttribute="bottom" constant="24" id="nlq-dg-W0p"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ResultLabel" destination="BC0-ET-xcT" id="hYu-Uf-NDE"/>
+                        <outlet property="resultLabel" destination="BC0-ET-xcT" id="znL-rm-OmR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaG-qa-2MS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5942.7480916030536" y="-4939.4366197183099"/>
+            <point key="canvasLocation" x="5888" y="-4946"/>
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="32" height="32"/>
         <image name="divide" width="32" height="32"/>
         <image name="minus" width="32" height="32"/>
         <image name="multiple" width="32" height="32"/>
