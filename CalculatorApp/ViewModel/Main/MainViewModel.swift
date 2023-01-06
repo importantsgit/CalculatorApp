@@ -28,13 +28,16 @@ final class MainViewModel: NSObject {
         }
     }
     
-    func setOperator(oper: Oper) {
+    func setOperator(oper: Oper) -> String {
         if isOperatorClicked() {
+            
             calculatingNumber()
-            model.resultButtonTapped()
+            let number =  model.resultButtonTapped()
             model.setOperButtonTapped(oper: oper)
+            return number
         } else {
             model.setOperButtonTapped(oper: oper)
+            return ""
         }
         
     }

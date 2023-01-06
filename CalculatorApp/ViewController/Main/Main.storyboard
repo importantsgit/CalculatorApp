@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z6B-2e-5aY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -129,7 +130,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="minus"/>
                                                         <connections>
                                                             <action selector="minusButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="QTM-06-R9e"/>
-                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Ehr-MT-X3A"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -186,7 +186,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="multiple"/>
                                                         <connections>
                                                             <action selector="multiplyButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="63q-5Q-Zuk"/>
-                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="3ez-jB-YL7"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -229,7 +228,6 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus"/>
                                                         <connections>
-                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="5FU-ea-GhB"/>
                                                             <action selector="plusButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Abo-cp-baa"/>
                                                         </connections>
                                                     </button>
@@ -258,8 +256,8 @@
                                     <constraint firstItem="GMm-Zd-k2a" firstAttribute="top" secondItem="M9b-8l-Inf" secondAttribute="top" id="rIn-wY-NSd"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC0-ET-xcT">
-                                <rect key="frame" x="339" y="338" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC0-ET-xcT">
+                                <rect key="frame" x="54" y="338" width="285" height="0.0"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -272,6 +270,7 @@
                             <constraint firstItem="VJm-Tl-2fK" firstAttribute="trailing" secondItem="M9b-8l-Inf" secondAttribute="trailing" constant="16" id="0m8-gl-Mif"/>
                             <constraint firstItem="VJm-Tl-2fK" firstAttribute="bottom" secondItem="M9b-8l-Inf" secondAttribute="bottom" constant="32" id="EGe-2L-nZj"/>
                             <constraint firstItem="VJm-Tl-2fK" firstAttribute="trailing" secondItem="BC0-ET-xcT" secondAttribute="trailing" constant="54" id="TZ7-wV-k0Q"/>
+                            <constraint firstItem="BC0-ET-xcT" firstAttribute="leading" secondItem="5bJ-bc-PO3" secondAttribute="leading" constant="54" id="hfu-cu-ktM"/>
                             <constraint firstItem="M9b-8l-Inf" firstAttribute="leading" secondItem="VJm-Tl-2fK" secondAttribute="leading" constant="16" id="n1V-mX-hBl"/>
                             <constraint firstItem="M9b-8l-Inf" firstAttribute="top" secondItem="BC0-ET-xcT" secondAttribute="bottom" constant="48" id="nlq-dg-W0p"/>
                         </constraints>
@@ -282,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaG-qa-2MS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5888" y="-4946"/>
+            <point key="canvasLocation" x="5894" y="-4948"/>
         </scene>
     </scenes>
     <resources>

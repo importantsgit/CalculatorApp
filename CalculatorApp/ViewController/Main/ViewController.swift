@@ -32,22 +32,21 @@ private extension ViewController {
         if viewModel.getPrevNumber() == "0" {
             showAlert(withTitle: "오류", message: "0을 나눌 수 없습니다.")
         } else {
-            viewModel.setOperator(oper: .divide)
-            resultLabel.text = ""
+            resultLabel.text = viewModel.setOperator(oper: .divide)
         }
 
     }
     
     @IBAction func minusButtonTapped(_ sender: UIButton) {
-        viewModel.setOperator(oper: .minus)
+        resultLabel.text = viewModel.setOperator(oper: .minus)
     }
     
     @IBAction func multiplyButtonTapped(_ sender: UIButton) {
-        viewModel.setOperator(oper: .multiply)
+        resultLabel.text = viewModel.setOperator(oper: .multiply)
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
-        viewModel.setOperator(oper: .plus)
+        resultLabel.text = viewModel.setOperator(oper: .plus)
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
@@ -57,10 +56,6 @@ private extension ViewController {
     
     @IBAction func allClearButtonTapped(_ sender: UIButton) {
         viewModel.resetNumber()
-        resultLabel.text = ""
-    }
-    
-    @IBAction func operButtonTapped(_ sender: UIButton) {
         resultLabel.text = ""
     }
     
