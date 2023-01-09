@@ -8,12 +8,16 @@
 import Foundation
 
 class NumberModel {
-    private var numberArray = ["","",""]{
+    private var numberArray = ["","",""] {
         didSet {
-            calloutNumber()
+            print("Number 13: \(numberArray)")
         }
     }
     private var operButtonTapped: Oper = .notClick
+    
+    private var isRational: Bool = false
+    
+    private var checkNumber = 0
     
     func resetArray() {
         operButtonTapped = .notClick
@@ -34,8 +38,8 @@ class NumberModel {
         self.numberArray[2] = number
     }
     
+    @discardableResult
     func resultButtonTapped() -> String {
-        getSolution()
         setOperButtonTapped(oper: .operClick)
         numberArray[0] = numberArray[2]
         numberArray[1] = ""
@@ -83,26 +87,20 @@ class NumberModel {
         }
     }
     
-    func calloutNumber() {
-        print("")
-        print("A:\(numberArray[0]) B:\(numberArray[1]) C:\(numberArray[2]) oper:\(operButtonTapped)")
+    func rationalCheck() -> Bool {
+        return isRational
     }
     
-    func getSolution() {
-        var oper = ""
-        switch operButtonTapped {
-        case .plus:
-            oper = "+"
-        case .minus:
-            oper = "-"
-        case .divide:
-            oper = "/"
-        case .multiply:
-            oper = "*"
-        default:
-            oper = "none"
-        }
-        
-        print("\(numberArray[0]) \(oper) \(numberArray[1]) = \(numberArray[2])")
+    func setRational(isRational:Bool) {
+        self.isRational = isRational
     }
+    
+    func setCurrentNumber(check: Int) {
+        checkNumber = check
+    }
+    
+    func getCurrentNumber() -> Int {
+        return checkNumber
+    }
+
 }

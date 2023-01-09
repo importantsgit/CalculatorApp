@@ -9,14 +9,26 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    var viewModel = MainViewModel()
+    lazy var viewModel: MainViewModel = {
+        let viewModel = MainViewModel()
+        viewModel.showAlert = { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.showAlert(withTitle: "오류", message: "값이 입력되지 않았습니다.")
+        }
+        return viewModel
+    }()
     
     @IBOutlet weak var resultLabel: UILabel!
     
+    @IBOutlet weak var subTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+   
+    
 }
 
 private extension ViewController {
@@ -25,37 +37,64 @@ private extension ViewController {
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         let number = sender.currentTitle!
-        resultLabel.text = viewModel.setInputnumber(number: number)
+        resultLabel.text = viewModel.setInputNumber(number: number)
     }
     
     @IBAction func divideButtonTapped(_ sender: UIButton) {
         if viewModel.getPrevNumber() == "0" {
             showAlert(withTitle: "오류", message: "0을 나눌 수 없습니다.")
         } else {
-            resultLabel.text = viewModel.setOperator(oper: .divide)
+            setOperButton(oper: .divide)
         }
 
     }
     
     @IBAction func minusButtonTapped(_ sender: UIButton) {
-        resultLabel.text = viewModel.setOperator(oper: .minus)
+        setOperButton(oper: .minus)
     }
     
     @IBAction func multiplyButtonTapped(_ sender: UIButton) {
-        resultLabel.text = viewModel.setOperator(oper: .multiply)
+        setOperButton(oper: .multiply)
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
-        resultLabel.text = viewModel.setOperator(oper: .plus)
+        setOperButton(oper: .plus)
+    }
+    
+    func setOperButton(oper: Oper) {
+        resultLabel.text = ""
+        viewModel.setOperator(oper: oper)
+        subTitleLabel.text = viewModel.activingSubLabel()
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
         resultLabel.text = viewModel.resultButtonTapped()
+        subTitleLabel.text = ""
     }
     
+    @IBAction func dotButtonTapped(_ sender: UIButton) {
+        let number = viewModel.dotButtonTapped()
+        if number != "ERROR" {
+            resultLabel.text = number
+        }
+    }
+    
+    @IBAction func negativeButtonTapped(_ sender: UIButton) {
+        resultLabel.text = viewModel.setNegativeNumber()
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        resultLabel.text = viewModel.backButtonTapped()
+    }
+    
+    @IBAction func clearButtonTapped(_ sender: UIButton) {
+        // 현재
+        resultLabel.text = viewModel.clearNumber()
+    }
     
     @IBAction func allClearButtonTapped(_ sender: UIButton) {
         viewModel.resetNumber()
+        subTitleLabel.text = ""
         resultLabel.text = ""
     }
     
@@ -67,3 +106,4 @@ private extension ViewController {
         }
     }
 }
+
