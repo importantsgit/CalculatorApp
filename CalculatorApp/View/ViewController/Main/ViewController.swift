@@ -11,7 +11,7 @@ final class ViewController: UIViewController {
     
     lazy var viewModel: MainViewModel = {
         let viewModel = MainViewModel()
-        viewModel.showAlert = { [weak self] in
+        viewModel.showAlert = { [weak self]  in
             guard let self = self else {
                 return
             }
@@ -41,12 +41,8 @@ private extension ViewController {
     }
     
     @IBAction func divideButtonTapped(_ sender: UIButton) {
-        if viewModel.getPrevNumber() == "0" {
-            showAlert(withTitle: "오류", message: "0을 나눌 수 없습니다.")
-        } else {
-            setOperButton(oper: .divide)
-        }
-
+        // 10 / 0 같은 경우가 없어야 된다.
+        setOperButton(oper: .divide)
     }
     
     @IBAction func minusButtonTapped(_ sender: UIButton) {
@@ -70,13 +66,6 @@ private extension ViewController {
     @IBAction func resultButtonTapped(_ sender: UIButton) {
         resultLabel.text = viewModel.resultButtonTapped()
         subTitleLabel.text = ""
-    }
-    
-    @IBAction func dotButtonTapped(_ sender: UIButton) {
-        let number = viewModel.dotButtonTapped()
-        if number != "ERROR" {
-            resultLabel.text = number
-        }
     }
     
     @IBAction func negativeButtonTapped(_ sender: UIButton) {

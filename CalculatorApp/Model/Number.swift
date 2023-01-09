@@ -8,22 +8,21 @@
 import Foundation
 
 class NumberModel {
-    private var numberArray = ["","",""] {
-        didSet {
-            print("Number 13: \(numberArray)")
-        }
-    }
-    private var operButtonTapped: Oper = .notClick
+   
+    // firstNumber (oper) secondNumber = resultNumber
+    private var firstNumber = ""
+    private var secondNumber = ""
+    private var resultNumber = ""
     
-    private var isRational: Bool = false
+    private var operButtonTapped: Oper = .notClick
     
     private var checkNumber = 0
     
     func resetArray() {
         operButtonTapped = .notClick
-        for i in 0...2 {
-            numberArray[i] = ""
-        }
+        firstNumber = ""
+        secondNumber = ""
+        resultNumber = ""
     }
     
     func getOperButtonTapped() -> Oper {
@@ -35,32 +34,34 @@ class NumberModel {
     }
     
     func setResult(number: String) {
-        self.numberArray[2] = number
+        resultNumber = number
     }
     
     @discardableResult
     func resultButtonTapped() -> String {
-        setOperButtonTapped(oper: .operClick)
-        numberArray[0] = numberArray[2]
-        numberArray[1] = ""
-        numberArray[2] = ""
-        return numberArray[0]
+        setOperButtonTapped(oper: .resultClick)
+        firstNumber = resultNumber
+        secondNumber = ""
+        resultNumber = ""
+        return firstNumber
     }
     
     func getPrevNumber() -> String {
-        return numberArray[0]
+        return firstNumber
     }
     
     func setPrevNumber(number: String) {
-        numberArray[0] = number
+        firstNumber = number
+        checkNumber = 0
     }
     
     func addingPrevNumber(number: String) {
-        numberArray[0] += number
+        firstNumber += number
+        checkNumber = 0
     }
     
     func isActivePrevNumber() -> Bool {
-        if !numberArray[0].isEmpty {
+        if !firstNumber.isEmpty {
             return true
         } else {
             return false
@@ -68,36 +69,31 @@ class NumberModel {
     }
     
     func getNextNumber() -> String {
-        return numberArray[1]
+        return secondNumber
     }
     
     func setNextNumber(number: String) {
-        numberArray[1] = number
+        secondNumber = number
+        checkNumber = 1
     }
     
     func addingNextNumber(number: String) {
-        numberArray[1] += number
+        secondNumber += number
+        checkNumber = 1
     }
     
     func isActiveNextNumber() -> Bool {
-        if !numberArray[1].isEmpty {
+        if !secondNumber.isEmpty {
             return true
         } else {
             return false
         }
     }
     
-    func rationalCheck() -> Bool {
-        return isRational
-    }
-    
-    func setRational(isRational:Bool) {
-        self.isRational = isRational
-    }
-    
-    func setCurrentNumber(check: Int) {
-        checkNumber = check
-    }
+    // 내장화 시키기
+//    func setCurrentNumber(check: Int) {
+//        checkNumber = check
+//    }
     
     func getCurrentNumber() -> Int {
         return checkNumber
