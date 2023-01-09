@@ -127,11 +127,11 @@ final class MainViewModel: NSObject {
     //TODO: 고민하기
     func setOperator(oper: Oper) {
         if isOperatorClicked() {
-            model.resultButtonTapped()
+            resultButtonTapped()
         } else {
             print("operisEmpty")
-            model.setOperButtonTapped(oper: oper)
         }
+        model.setOperButtonTapped(oper: oper)
     }
     
     func isOperatorClicked() -> Bool {
@@ -143,6 +143,7 @@ final class MainViewModel: NSObject {
     }
     
     // result버튼 클릭시
+    @discardableResult
     func resultButtonTapped() -> String {
         calculatingNumber()
         return model.resultButtonTapped()

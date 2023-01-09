@@ -14,7 +14,11 @@ class NumberModel {
     private var secondNumber = ""
     private var resultNumber = ""
     
-    private var operButtonTapped: Oper = .notClick
+    private var operButtonTapped: Oper = .notClick {
+        didSet {
+            print(operButtonTapped)
+        }
+    }
     
     private var checkNumber = 0
     
