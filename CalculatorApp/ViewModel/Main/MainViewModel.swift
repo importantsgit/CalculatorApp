@@ -77,14 +77,8 @@ final class MainViewModel: NSObject {
             let digit: Double = pow(10,4)
             return String(round(num * digit) / digit)
         }
-        return "ERROR"
+        return ""
 
-    }
-    
-    //MARK: 이 메소드를 쓰는게 맞는지 질문하기
-    func isOperatorClicked() -> Bool { // +-/* 클릭시
-    // oper 클릭 안하거나 result 버튼 클릭 시
-        return !(model.getStatus() == .none || model.getStatus() == .result)
     }
     
     // result 도출 -> Int인지 Double인지

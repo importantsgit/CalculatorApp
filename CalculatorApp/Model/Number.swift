@@ -27,9 +27,7 @@ class NumberModel {
     }
     
     private var checkNumber = 0 {
-        didSet {
-            if point {
-                print("checkNumber: \(checkNumber)")
+        didSet {if point {print("checkNumber: \(checkNumber)")
                 print("1:\(firstNumber) 2:\(secondNumber) 3:\(resultNumber)")
             }
         }
