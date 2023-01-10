@@ -14,4 +14,5 @@ enum Oper {
     case divide
     case multiply
     case plus
+    case ERROR
 }

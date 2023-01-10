@@ -66,12 +66,12 @@ class NumberModel {
     
     func setPrevNumber(number: String) {
         firstNumber = number
-        //TODO: checkNumber = 0
     }
     
+    //MARK: 0100 문제 해결
+    // String -> Int -> String
     func addingPrevNumber(number: String) {
-        firstNumber += number
-        //TODO: checkNumber = 0
+        firstNumber = String(Int(firstNumber + number)!)
     }
     
     func isActivePrevNumber() -> Bool {
@@ -88,12 +88,12 @@ class NumberModel {
     
     func setNextNumber(number: String) {
         secondNumber = number
-        //TODO: checkNumber = 1
     }
     
+    //MARK: 0100 문제 해결
+    // String -> Int -> String
     func addingNextNumber(number: String) {
-        secondNumber += number
-        //TODO: checkNumber = 1
+        secondNumber = String(Int(secondNumber + number)!)
     }
     
     func isActiveNextNumber() -> Bool {
@@ -107,5 +107,4 @@ class NumberModel {
     func getCurrentNumber() -> Int {
         return checkNumber
     }
-
 }

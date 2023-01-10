@@ -41,7 +41,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pW9-Hc-WEv">
                                                 <rect key="frame" x="15.666666666666657" y="0.0" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqq-p3-sDI">
+                                                    <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqq-p3-sDI" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="sqE-g2-QZU"/>
@@ -52,7 +52,7 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="AC"/>
                                                         <connections>
-                                                            <action selector="allClearButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="nSN-6W-LrQ"/>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="gUV-p1-lG8"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-aL-5FT">
@@ -69,7 +69,7 @@
                                                             <constraint firstAttribute="height" constant="75" id="iwc-xV-mIx"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-AP-XY0">
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-AP-XY0" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="1sK-2t-zL2"/>
@@ -78,7 +78,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus"/>
                                                         <connections>
-                                                            <action selector="plusButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="Abo-cp-baa"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="HSv-1B-Mht"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -86,7 +86,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gck-tu-fjF">
                                                 <rect key="frame" x="15.666666666666657" y="106.33333333333331" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUr-Oh-TeY">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUr-Oh-TeY" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="MGB-dU-agX"/>
@@ -100,7 +100,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="ZhM-rY-Hu0"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-z4-5Zq">
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-z4-5Zq" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="Dnl-MI-J3C"/>
@@ -114,7 +114,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="bUq-ZT-jeR"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7da-6M-1EG">
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7da-6M-1EG" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="OlW-ed-WuG"/>
@@ -128,7 +128,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="gTd-2Z-kp7"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLk-rr-Hbm">
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLk-rr-Hbm" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="LSa-J4-Vnd"/>
@@ -137,7 +137,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="divide"/>
                                                         <connections>
-                                                            <action selector="divideButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="kcm-z9-J0d"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="RXr-Ba-IJB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -145,7 +145,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogH-wm-WvV">
                                                 <rect key="frame" x="15.666666666666657" y="212.66666666666669" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-7X-yOy">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-7X-yOy" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="nfx-YT-axG"/>
@@ -159,7 +159,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="mU5-TR-UCC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdS-Sl-aJ8">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdS-Sl-aJ8" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="2o5-oo-8tA"/>
@@ -173,7 +173,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="uu2-hQ-DW6"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tj-qb-BIM">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tj-qb-BIM" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="6mK-AI-chP"/>
@@ -187,7 +187,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="6jF-Ow-9Hf"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUq-Aw-3YA">
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUq-Aw-3YA" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="7RA-Y5-Ulx"/>
@@ -196,7 +196,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus"/>
                                                         <connections>
-                                                            <action selector="minusButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="QTM-06-R9e"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="sN8-jz-CH5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -204,7 +204,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IIE-RP-Y2o">
                                                 <rect key="frame" x="15.666666666666657" y="318.66666666666663" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrh-4q-He6">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrh-4q-He6" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="iYJ-Fb-Tbu"/>
@@ -218,7 +218,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="iyD-p9-F0n"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQI-bB-koI">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQI-bB-koI" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="1Lp-B3-0uY"/>
@@ -232,7 +232,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="2h0-m8-PzX"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZn-sU-5Oy">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZn-sU-5Oy" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="SxM-OF-jk3"/>
@@ -246,7 +246,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="kmX-dj-2m7"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEo-G3-DDl">
+                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEo-G3-DDl" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="Cdo-rq-uR0"/>
@@ -255,7 +255,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="multiple"/>
                                                         <connections>
-                                                            <action selector="multiplyButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="63q-5Q-Zuk"/>
+                                                            <action selector="operButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="HmT-hY-tHg"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -263,7 +263,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAI-53-YGa">
                                                 <rect key="frame" x="15.666666666666657" y="425" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-tc-lIe">
+                                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-tc-lIe" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="YTF-yo-xZ2"/>
@@ -274,10 +274,10 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="+/-"/>
                                                         <connections>
-                                                            <action selector="negativeButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="fnw-1b-uGe"/>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="4NG-rN-oLj"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-yK-zNJ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-yK-zNJ" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="M45-wC-HMq"/>
@@ -291,7 +291,7 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="U0E-XP-ejP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AV5-hR-0Tq">
+                                                    <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AV5-hR-0Tq" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="NlP-vm-7gz"/>
@@ -300,10 +300,10 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="back"/>
                                                         <connections>
-                                                            <action selector="backButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="dj3-XR-9kx"/>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="qo8-d4-slo"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY7-5e-irm">
+                                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY7-5e-irm" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="aLj-Mg-PYN"/>

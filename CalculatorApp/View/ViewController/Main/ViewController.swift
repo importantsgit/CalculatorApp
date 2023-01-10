@@ -27,8 +27,6 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-   
-    
 }
 
 private extension ViewController {
@@ -40,21 +38,16 @@ private extension ViewController {
         resultLabel.text = viewModel.setInputNumber(number: number)
     }
     
-    @IBAction func divideButtonTapped(_ sender: UIButton) {
-        // 10 / 0 같은 경우가 없어야 된다.
-        setOperButton(oper: .divide)
-    }
-    
-    @IBAction func minusButtonTapped(_ sender: UIButton) {
-        setOperButton(oper: .minus)
-    }
-    
-    @IBAction func multiplyButtonTapped(_ sender: UIButton) {
-        setOperButton(oper: .multiply)
-    }
-    
-    @IBAction func plusButtonTapped(_ sender: UIButton) {
-        setOperButton(oper: .plus)
+    @IBAction func operButtonTapped(_ sender: UIButton) {
+        var oper: Oper = .none
+        switch sender.tag {
+        case 10: oper = .plus
+        case 11: oper = .divide
+        case 12: oper = .minus
+        case 13: oper = .multiply
+        default: oper = .ERROR
+        }
+        setOperButton(oper: oper)
     }
     
     func setOperButton(oper: Oper) {
@@ -67,20 +60,18 @@ private extension ViewController {
         resultLabel.text = viewModel.returnResult()
     }
     
-    @IBAction func negativeButtonTapped(_ sender: UIButton) {
-        resultLabel.text = viewModel.setNegativeNumber()
+    @IBAction func functionButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 30: resultLabel.text = viewModel.backButtonTapped()
+        case 40: resultLabel.text = viewModel.setNegativeNumber()
+        case 50:
+            viewModel.resetNumber()
+            subTitleLabel.text = ""
+            resultLabel.text = ""
+        default: print("ERROR")
+        }
     }
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        resultLabel.text = viewModel.backButtonTapped()
-    }
-    
-    @IBAction func allClearButtonTapped(_ sender: UIButton) {
-        viewModel.resetNumber()
-        subTitleLabel.text = ""
-        resultLabel.text = ""
-    }
-    
+
     func showAlert(withTitle title: String, message: String){
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -32,10 +32,10 @@ final class MainViewModel: NSObject {
     //+- 바꾸기
     func setNegativeNumber() -> String {
         if model.getCurrentNumber() == 0 {
-            model.setPrevNumber(number: String(-1 * Double(model.getPrevNumber())!))
+            model.setPrevNumber(number: String(-1 * Int(model.getPrevNumber())!))
             return model.getPrevNumber()
         } else {
-            model.setNextNumber(number: String(-1 * Double(model.getNextNumber())!))
+            model.setNextNumber(number: String(-1 * Int(model.getNextNumber())!))
             return model.getNextNumber()
         }
     }
@@ -78,7 +78,7 @@ final class MainViewModel: NSObject {
         }
     }
     
-    // result버튼 클릭시
+    // result 도출
     func returnResult() -> String {
         calculatingNumber()
         return model.settingResult()
@@ -100,6 +100,7 @@ final class MainViewModel: NSObject {
             case .plus: model.setResult(number: String(prevNumber + nextNumber))
             case .none: print("operator is notClicked")
             case .result: print("operator is Clicked")
+            case .ERROR: print("ERROR: 문제를 풀 수 없습니다.")
             }
         } else if model.isActivePrevNumber() {  // A만 있는 경우
             model.setResult(number: model.getPrevNumber())
