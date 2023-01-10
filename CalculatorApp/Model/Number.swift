@@ -9,6 +9,8 @@ import Foundation
 
 class NumberModel {
    
+    var point = DebugPoint().checking
+    
     // firstNumber (oper) secondNumber = resultNumber
     private var firstNumber = ""
     private var secondNumber = ""
@@ -16,17 +18,21 @@ class NumberModel {
     
     private var operStatus: Oper = .none {
         didSet {
-            print(operStatus)
+            if point {
+                print("operStatus: \(operStatus)")
+            }
         }
     }
     
     private var checkNumber = 0 {
         didSet {
-            print("checkNumber: \(checkNumber)")
+            if point {
+                print("checkNumber: \(checkNumber)")
+                print("1:\(firstNumber) 2:\(secondNumber) 3:\(resultNumber)")
+            }
         }
     }
-    
-    func resetArray() {
+    func ClearModel() {
         setOperStatus(oper: .none)
         firstNumber = ""
         secondNumber = ""
@@ -48,8 +54,8 @@ class NumberModel {
         self.operStatus = oper
     }
     
-    func setResult(number: String) {
-        resultNumber = number
+    func setResult(number: Double) {
+        resultNumber = String(number)
     }
     
     func settingResult() -> String {
@@ -97,14 +103,10 @@ class NumberModel {
     }
     
     func isActiveNextNumber() -> Bool {
-        if !secondNumber.isEmpty {
-            return true
-        } else {
-            return false
-        }
+        return !secondNumber.isEmpty
     }
     
-    func getCurrentNumber() -> Int {
+    func CheckCurrentNumber() -> Int {
         return checkNumber
     }
 }

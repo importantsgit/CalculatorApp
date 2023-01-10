@@ -28,7 +28,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="524-lc-8im"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -55,20 +55,32 @@
                                                             <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="gUV-p1-lG8"/>
                                                         </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-aL-5FT">
+                                                    <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AV5-hR-0Tq" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="1GN-ob-tbW"/>
-                                                            <constraint firstAttribute="height" constant="75" id="yHs-60-U4h"/>
+                                                            <constraint firstAttribute="height" constant="75" id="NlP-vm-7gz"/>
+                                                            <constraint firstAttribute="width" constant="75" id="zlJ-Lq-06d"/>
                                                         </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8u-BI-1rT">
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="back"/>
+                                                        <connections>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="qo8-d4-slo"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-tc-lIe" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="9HP-eb-csb"/>
-                                                            <constraint firstAttribute="height" constant="75" id="iwc-xV-mIx"/>
+                                                            <constraint firstAttribute="height" constant="75" id="YTF-yo-xZ2"/>
+                                                            <constraint firstAttribute="width" constant="75" id="htX-N1-Zn8"/>
                                                         </constraints>
-                                                    </view>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="+/-"/>
+                                                        <connections>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="4NG-rN-oLj"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-AP-XY0" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
@@ -263,20 +275,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAI-53-YGa">
                                                 <rect key="frame" x="15.666666666666657" y="425" width="330" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-tc-lIe" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8u-BI-1rT">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="YTF-yo-xZ2"/>
-                                                            <constraint firstAttribute="width" constant="75" id="htX-N1-Zn8"/>
+                                                            <constraint firstAttribute="width" constant="75" id="9HP-eb-csb"/>
+                                                            <constraint firstAttribute="height" constant="75" id="iwc-xV-mIx"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="+/-"/>
-                                                        <connections>
-                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="4NG-rN-oLj"/>
-                                                        </connections>
-                                                    </button>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-yK-zNJ" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>
@@ -291,16 +296,17 @@
                                                             <action selector="numberButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="U0E-XP-ejP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AV5-hR-0Tq" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
+                                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYa-dz-hSc" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="NlP-vm-7gz"/>
-                                                            <constraint firstAttribute="width" constant="75" id="zlJ-Lq-06d"/>
+                                                            <constraint firstAttribute="height" constant="75" id="EVl-ph-9pV"/>
+                                                            <constraint firstAttribute="width" constant="75" id="G0u-kF-5E6"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="back"/>
+                                                        <state key="normal" image="dot"/>
                                                         <connections>
-                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="qo8-d4-slo"/>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="zHf-KT-6jn"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY7-5e-irm" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
@@ -355,6 +361,7 @@
     <resources>
         <image name="back" width="32" height="32"/>
         <image name="divide" width="32" height="32"/>
+        <image name="dot" width="32" height="32"/>
         <image name="minus" width="32" height="32"/>
         <image name="multiple" width="32" height="32"/>
         <image name="plus" width="32" height="32"/>

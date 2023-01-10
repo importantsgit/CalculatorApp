@@ -31,15 +31,15 @@ class ButtonView: UIButton {
     
 
     private func NumberTapped(_ number: Int) {
-        print("NumberTapped")
+        //print("NumberTapped")
     }
     
     private func OperatorTapped(_ number: Int) {
-        print("OperButtonTapped")
+        //print("OperButtonTapped")
     }
     
     
     private func functionTapped(_ number: Int){
-        print("functionTapped")
+        //print("functionTapped")
     }
 }

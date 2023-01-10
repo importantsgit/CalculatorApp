@@ -11,11 +11,11 @@ final class ViewController: UIViewController {
     
     lazy var viewModel: MainViewModel = {
         let viewModel = MainViewModel()
-        viewModel.showAlert = { [weak self]  in
+        viewModel.showAlert = { [weak self] title, des in
             guard let self = self else {
                 return
             }
-            self.showAlert(withTitle: "오류", message: "값이 입력되지 않았습니다.")
+            self.showAlert(withTitle: title, message: des)
         }
         return viewModel
     }()
@@ -27,6 +27,20 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func functionButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        //TODO: demical 버튼 수정하기
+        case 20: resultLabel.text = viewModel.demicalButtonTapped(number: resultLabel.text!)
+        case 30: backButtonTapped()
+        case 40: resultLabel.text = viewModel.setNegativeNumber(number: resultLabel.text!)
+        case 50:
+            viewModel.ClearNumber()
+            subTitleLabel.text = ""
+            resultLabel.text = ""
+        default: showAlert(withTitle: "41", message: "잘못된 버튼입니다.")
+        }
+    }
 }
 
 private extension ViewController {
@@ -35,10 +49,18 @@ private extension ViewController {
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         let number = sender.currentTitle!
-        resultLabel.text = viewModel.setInputNumber(number: number)
+        //MARK: new
+        if resultLabel.text! == "0" {
+            resultLabel.text = ""
+        }
+        resultLabel.text = resultLabel.text! + number
+        //resultLabel.text = viewModel.setInputNumber(number: number)
     }
     
     @IBAction func operButtonTapped(_ sender: UIButton) {
+        
+        viewModel.setInputNumber(number: resultLabel.text!)
+        
         var oper: Oper = .none
         switch sender.tag {
         case 10: oper = .plus
@@ -56,22 +78,15 @@ private extension ViewController {
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
+        viewModel.setInputNumber(number: resultLabel.text!)
         subTitleLabel.text = ""
         resultLabel.text = viewModel.returnResult()
     }
     
-    @IBAction func functionButtonTapped(_ sender: UIButton) {
-        switch sender.tag {
-        case 30: resultLabel.text = viewModel.backButtonTapped()
-        case 40: resultLabel.text = viewModel.setNegativeNumber()
-        case 50:
-            viewModel.resetNumber()
-            subTitleLabel.text = ""
-            resultLabel.text = ""
-        default: print("ERROR")
-        }
+    func backButtonTapped() {
+        resultLabel.text = String(resultLabel.text!.dropLast(1))
     }
-
+    
     func showAlert(withTitle title: String, message: String){
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
