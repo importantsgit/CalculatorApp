@@ -14,128 +14,64 @@ final class MainViewModel: NSObject {
     var showAlert: (()-> Void)?
     
     func setInputNumber(number: String) -> String {
-        if model.getOperButtonTapped() == .notClick {
+        if model.getOperStatus() == .result {
+            resetNumber()
+        }
+        
+        if model.getOperStatus() == .none || model.getOperStatus() == .result {
             model.addingPrevNumber(number: number)
             return model.getPrevNumber()
-            
         } else {
-            if model.getOperButtonTapped() == .resultClick {
-                resetNumber()
-                model.addingPrevNumber(number: number)
-                return model.getPrevNumber()
-            } else {
-                model.addingNextNumber(number: number)
-                return model.getNextNumber()
-            }
+            model.addingNextNumber(number: number)
+            return model.getNextNumber()
         }
     }
+    
+    //MARK: model의 checkNumber을 이용하여 현재 쓰고 있는 number의 위치를 파악하고 그 number을 수정할 수 있게 만들었습니다.
     
     //+- 바꾸기
     func setNegativeNumber() -> String {
-        if model.getOperButtonTapped() == .notClick {
+        if model.getCurrentNumber() == 0 {
             model.setPrevNumber(number: String(-1 * Double(model.getPrevNumber())!))
             return model.getPrevNumber()
         } else {
-            if model.getOperButtonTapped() == .resultClick {
-                resetNumber()
-                model.setPrevNumber(number: String(-1 * Double(model.getPrevNumber())!))
-                return model.getPrevNumber()
-            } else {
-                model.setNextNumber(number: String(-1 * Double(model.getNextNumber())!))
-                return model.getNextNumber()
-            }
-        }
-    }
-    
-    //현재 값 지우기
-    func clearNumber() -> String {
-        if model.getOperButtonTapped() == .notClick {
-            model.setPrevNumber(number: "")
-            return model.getPrevNumber()
-        } else {
-            if model.getOperButtonTapped() == .resultClick {
-                resetNumber()
-                model.setPrevNumber(number: "")
-                return model.getPrevNumber()
-            } else {
-                model.setNextNumber(number: "")
-                return model.getNextNumber()
-            }
+            model.setNextNumber(number: String(-1 * Double(model.getNextNumber())!))
+            return model.getNextNumber()
         }
     }
     
     //backbutton 클릭시 맨 뒤 숫자 지우기
     func backButtonTapped() -> String {
-        if model.getOperButtonTapped() == .notClick {
-            let number = model.getPrevNumber()
-            model.setPrevNumber(number: String(number.dropLast(1)))
-            return model.getPrevNumber()
-        } else {
-            if model.getOperButtonTapped() == .resultClick {
-                resetNumber()
-                let number = model.getPrevNumber()
-                model.setPrevNumber(number: String(number.dropLast(1)))
-                return model.getPrevNumber()
-            } else {
-                let number = model.getNextNumber()
-                model.setNextNumber(number: String(number.dropLast(1)))
-                return model.getNextNumber()
-            }
-        }
-    }
-    
-    //TODO: 고민하기
-    /*
-    func dotButtonTapped() -> String {
-        if model.rationalCheck() {
-            // 유리수
-            AudioServicesPlaySystemSound(1106)
-            return "ERROR"
-        } else {
-            // 정수
-            model.setRational(isRational: true)
-            if model.getOperButtonTapped() == .notClick {
-                return addingDot()
-            } else {
-                if model.getOperButtonTapped() == .resultClick {
-                    resetNumber()
-                    model.addingPrevNumber(number: ".")
-                    return model.getPrevNumber()
-                } else {
-                    model.addingNextNumber(number: ".")
-                    return model.getNextNumber()
-                }
-            }
-        }
-    }
-     
-    
-    func addingDot() -> String {
-        var number = ""
         if model.getCurrentNumber() == 0 {
-            number = model.getPrevNumber() == "" ? "0." : "."
-            model.addingPrevNumber(number: number)
+            model.setPrevNumber(number: String(model.getPrevNumber().dropLast(1)))
             return model.getPrevNumber()
         } else {
-            number = model.getNextNumber() == "" ? "0." : "."
-            model.addingNextNumber(number: number)
+            model.setNextNumber(number: String(model.getNextNumber().dropLast(1)))
             return model.getNextNumber()
         }
     }
-     */
     
-    //TODO: 고민하기
-    func setOperator(oper: Oper) {
-        if isOperatorClicked() {
-            resultButtonTapped()
-        } else {
-            print("operisEmpty")
-        }
-        model.setOperButtonTapped(oper: oper)
+    // 숫자 클리어하기
+    func resetNumber() {
+        model.setOperStatus(oper: .none)
+        model.resetArray()
     }
     
-    func isOperatorClicked() -> Bool {
-        if model.getOperButtonTapped() == .notClick || model.getOperButtonTapped() == .resultClick {
+    //MARK: A값(result)을 return 하도록 수정했습니다.
+    func setOperator(oper: Oper) -> String {
+        var number = ""
+        if isOperatorClicked() { // 연산자를 클릭하고 또 클릭했을 때
+            number = returnResult() // 먼저 결과값 계산 ( A + B ) -> result -> A
+        } else { // 연산자를 처음 클릭했을 때
+            number = model.getPrevNumber()
+        }
+        model.setOperStatus(oper: oper) // A +
+        return number
+    }
+    
+    //MARK: 이 메소드를 쓰는게 맞는지 질문하기
+    func isOperatorClicked() -> Bool { // +-/* 클릭시
+        if model.getOperStatus() == .none || model.getOperStatus() == .result { // oper 클릭 안하거나 result 버튼 클릭 시
             return false
         } else {
             return true
@@ -143,28 +79,27 @@ final class MainViewModel: NSObject {
     }
     
     // result버튼 클릭시
-    @discardableResult
-    func resultButtonTapped() -> String {
+    func returnResult() -> String {
         calculatingNumber()
-        return model.resultButtonTapped()
-    }
-    
-    
-    func resetNumber() {
-        model.resetArray()
+        return model.settingResult()
     }
     
     func calculatingNumber() {
         if model.isActiveNextNumber() { // A와 B가 있는 경우
             let prevNumber = Int(model.getPrevNumber())!
             let nextNumber = Int(model.getNextNumber())!
-            switch model.getOperButtonTapped() {
-            case .divide: model.setResult(number: String(prevNumber / nextNumber))
+            switch model.getOperStatus() {
+            case .divide:
+                if nextNumber == 0 {
+                    print("0으로 나눌 수 없습니다.")
+                } else {
+                    model.setResult(number: String(prevNumber / nextNumber))
+                }
             case .minus : model.setResult(number: String(prevNumber - nextNumber))
             case .multiply : model.setResult(number: String(prevNumber * nextNumber))
             case .plus: model.setResult(number: String(prevNumber + nextNumber))
-            case .notClick: print("operator is notClicked")
-            case .resultClick: print("operator is Clicked")
+            case .none: print("operator is notClicked")
+            case .result: print("operator is Clicked")
             }
         } else if model.isActivePrevNumber() {  // A만 있는 경우
             model.setResult(number: model.getPrevNumber())
@@ -177,13 +112,4 @@ final class MainViewModel: NSObject {
     func getPrevNumber() -> String {
         return model.getPrevNumber()
     }
-    
-    func activingSubLabel() -> String {
-        if model.isActivePrevNumber() {
-            return model.getPrevNumber()
-        } else {
-            return ""
-        }
-    }
-
 }

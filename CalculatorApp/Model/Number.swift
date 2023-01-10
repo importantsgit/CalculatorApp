@@ -14,36 +14,46 @@ class NumberModel {
     private var secondNumber = ""
     private var resultNumber = ""
     
-    private var operButtonTapped: Oper = .notClick {
+    private var operStatus: Oper = .none {
         didSet {
-            print(operButtonTapped)
+            print(operStatus)
         }
     }
     
-    private var checkNumber = 0
+    private var checkNumber = 0 {
+        didSet {
+            print("checkNumber: \(checkNumber)")
+        }
+    }
     
     func resetArray() {
-        operButtonTapped = .notClick
+        setOperStatus(oper: .none)
         firstNumber = ""
         secondNumber = ""
         resultNumber = ""
     }
     
-    func getOperButtonTapped() -> Oper {
-        return operButtonTapped
+    func getOperStatus() -> Oper {
+        return operStatus
     }
     
-    func setOperButtonTapped(oper: Oper) {
-        self.operButtonTapped = oper
+    // oper값 수정 -> check number 내장화
+    //TODO: 모두 이걸 이용하게 하기
+    func setOperStatus(oper: Oper) {
+        if oper == .none || oper == .result {
+            checkNumber = 0
+        } else {
+            checkNumber = 1
+        }
+        self.operStatus = oper
     }
     
     func setResult(number: String) {
         resultNumber = number
     }
     
-    @discardableResult
-    func resultButtonTapped() -> String {
-        setOperButtonTapped(oper: .resultClick)
+    func settingResult() -> String {
+        setOperStatus(oper: .result)
         firstNumber = resultNumber
         secondNumber = ""
         resultNumber = ""
@@ -56,12 +66,12 @@ class NumberModel {
     
     func setPrevNumber(number: String) {
         firstNumber = number
-        checkNumber = 0
+        //TODO: checkNumber = 0
     }
     
     func addingPrevNumber(number: String) {
         firstNumber += number
-        checkNumber = 0
+        //TODO: checkNumber = 0
     }
     
     func isActivePrevNumber() -> Bool {
@@ -78,12 +88,12 @@ class NumberModel {
     
     func setNextNumber(number: String) {
         secondNumber = number
-        checkNumber = 1
+        //TODO: checkNumber = 1
     }
     
     func addingNextNumber(number: String) {
         secondNumber += number
-        checkNumber = 1
+        //TODO: checkNumber = 1
     }
     
     func isActiveNextNumber() -> Bool {
@@ -93,11 +103,6 @@ class NumberModel {
             return false
         }
     }
-    
-    // 내장화 시키기
-//    func setCurrentNumber(check: Int) {
-//        checkNumber = check
-//    }
     
     func getCurrentNumber() -> Int {
         return checkNumber

@@ -8,8 +8,8 @@
 import Foundation
 
 enum Oper {
-    case notClick
-    case resultClick
+    case none
+    case result
     case minus
     case divide
     case multiply

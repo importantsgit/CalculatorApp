@@ -59,13 +59,12 @@ private extension ViewController {
     
     func setOperButton(oper: Oper) {
         resultLabel.text = ""
-        viewModel.setOperator(oper: oper)
-        subTitleLabel.text = viewModel.activingSubLabel()
+        subTitleLabel.text = viewModel.setOperator(oper: oper)
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
-        resultLabel.text = viewModel.resultButtonTapped()
         subTitleLabel.text = ""
+        resultLabel.text = viewModel.returnResult()
     }
     
     @IBAction func negativeButtonTapped(_ sender: UIButton) {
@@ -74,11 +73,6 @@ private extension ViewController {
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         resultLabel.text = viewModel.backButtonTapped()
-    }
-    
-    @IBAction func clearButtonTapped(_ sender: UIButton) {
-        // 현재
-        resultLabel.text = viewModel.clearNumber()
     }
     
     @IBAction func allClearButtonTapped(_ sender: UIButton) {
