@@ -8,5 +8,5 @@
 import Foundation
 
 struct DebugPoint {
-    let checking: Bool = true
+    let checking: Bool = false
 }

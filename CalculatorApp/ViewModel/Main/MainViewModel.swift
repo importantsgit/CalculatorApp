@@ -34,7 +34,6 @@ final class MainViewModel: NSObject {
         }
     }
     
-    
     // 숫자 클리어하기
     func ClearNumber() {
         model.ClearModel()
@@ -42,7 +41,7 @@ final class MainViewModel: NSObject {
     
     func demicalButtonTapped(number: String) -> String {
         var number = number
-        if number.contains(".") { // 소수일 경우
+        if number.contains(".") {
             AudioServicesPlaySystemSound(1106)
         } else {
             number += "."
@@ -50,66 +49,81 @@ final class MainViewModel: NSObject {
         return number
     }
     
-    //MARK: A값(result)을 return 하도록 수정했습니다.
+    //TODO: .none 상태일 때, 연산자 입력하기
+    
     // -> Int인지 Double인지
     func setOperator(oper: Oper) -> String {
         var number = ""
-        if isOperatorClicked() { // 연산자를 클릭하고 또 클릭했을 때
-            number = returnResult() // 먼저 결과값 계산 ( A + B ) -> result -> A
-        } else { // 연산자를 처음 클릭했을 때
+        if model.getStatus() == .result { // = 연산 후 연산자 클릭
             number = model.getPrevNumber()
+        } else if model.getStatus() != .none { // 연산자 클릭 후 바로 클릭
+            // 먼저 결과값 계산 ( A + B ) -> result -> A
+            number = returnResult()
         }
-        model.setOperStatus(oper: oper) // A +
-        //TODO: change
-        let num = Double(number)!
-        if num.truncatingRemainder(dividingBy: 1.0) == 0 {
-            return String(Int(Double(number)!.rounded()))
+        else { // 연산자를 처음 클릭했을 때
+            if model.isActivePrevNumber() {
+                number = model.getPrevNumber()
+            } else {
+                showAlert?("숫자 없이 계산이 불가능 합니다.","숫자를 입력하세요")
+            }
         }
-        let digit: Double = pow(10,4)
-        return String(round(num * digit) / digit)
+        
+        if model.isActivePrevNumber() {
+            model.setOperator(status: oper)
+            let num = Double(number)!
+            if num.truncatingRemainder(dividingBy: 1.0) == 0 {
+                return String(Int(Double(number)!.rounded()))
+            }
+            let digit: Double = pow(10,4)
+            return String(round(num * digit) / digit)
+        }
+        return "ERROR"
+
     }
     
     //MARK: 이 메소드를 쓰는게 맞는지 질문하기
     func isOperatorClicked() -> Bool { // +-/* 클릭시
     // oper 클릭 안하거나 result 버튼 클릭 시
-        return !(model.getOperStatus() == .none || model.getOperStatus() == .result)
+        return !(model.getStatus() == .none || model.getStatus() == .result)
     }
     
     // result 도출 -> Int인지 Double인지
     func returnResult() -> String {
-        calculatingNumber()
-        let number = model.settingResult()
-        let num = Double(number)!
-        if num.truncatingRemainder(dividingBy: 1.0) == 0 {
-            return String(Int(Double(number)!.rounded()))
+        if model.isActivePrevNumber() {
+            calculatingNumber()
+            let number = model.getResult()
+            let num = Double(number)!
+            if num.truncatingRemainder(dividingBy: 1.0) == 0 {
+                return String(Int(Double(number)!.rounded()))
+            }
+            let digit: Double = pow(10,4)
+            return String(round(num * digit) / digit)
         }
-        let digit: Double = pow(10,4)
-        return String(round(num * digit) / digit)
+        return ""
     }
     
     func calculatingNumber() {
         if model.isActiveNextNumber() { // A와 B가 있는 경우
             let prevNumber = Double(model.getPrevNumber())!
             let nextNumber = Double(model.getNextNumber())!
-            print("105: \(prevNumber*nextNumber)")
-            switch model.getOperStatus() {
+            switch model.getStatus() {
             case .divide:
                 if nextNumber == 0.0 || nextNumber == 0 {
                     showAlert?("0으로 나눌 수 없습니다.","다시 입력하세요.")
-                    model.setResult(number: Double(model.getPrevNumber())!)
+                    model.setResult( Double(model.getPrevNumber())!)
                 } else {
-                    model.setResult(number: prevNumber / nextNumber)
+                    model.setResult(prevNumber / nextNumber)
                 }
-            case .minus : model.setResult(number: prevNumber - nextNumber)
-            case .multiply : model.setResult(number: prevNumber * nextNumber)
-            case .plus: model.setResult(number: prevNumber + nextNumber)
-            case .none: print("operator is notClicked")
-            case .result: print("operator is Clicked")
-            case .ERROR: showAlert?("103","계산이 되지 않습니다")
+            case .minus : model.setResult(prevNumber - nextNumber)
+            case .multiply : model.setResult(prevNumber * nextNumber)
+            case .plus: model.setResult(prevNumber + nextNumber)
+            case .none: showAlert?("ERROR","계산이 되지 않습니다")
+            case .result: showAlert?("ERROR","계산이 되지 않습니다")
+            case .ERROR: showAlert?("ERROR","계산이 되지 않습니다")
                 break
             }
         } else if model.isActivePrevNumber() {  // A만 있는 경우
-            model.setResult(number: Double(model.getPrevNumber())!)
+            model.setResult(Double(model.getPrevNumber())!)
         } else { // 아무것도 없는 경우
             showAlert?("계산될 숫자가 없습니다.", "숫자를 입력하세요.")
         }

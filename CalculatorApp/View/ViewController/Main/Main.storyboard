@@ -67,20 +67,13 @@
                                                             <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="qo8-d4-slo"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-tc-lIe" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8u-BI-1rT">
                                                         <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="YTF-yo-xZ2"/>
-                                                            <constraint firstAttribute="width" constant="75" id="htX-N1-Zn8"/>
+                                                            <constraint firstAttribute="width" constant="75" id="9HP-eb-csb"/>
+                                                            <constraint firstAttribute="height" constant="75" id="iwc-xV-mIx"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="+/-"/>
-                                                        <connections>
-                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="4NG-rN-oLj"/>
-                                                        </connections>
-                                                    </button>
+                                                    </view>
                                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-AP-XY0" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="255" y="0.0" width="75" height="75"/>
                                                         <constraints>
@@ -275,13 +268,20 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAI-53-YGa">
                                                 <rect key="frame" x="15.666666666666657" y="425" width="330" height="75"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8u-BI-1rT">
+                                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-tc-lIe" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="9HP-eb-csb"/>
-                                                            <constraint firstAttribute="height" constant="75" id="iwc-xV-mIx"/>
+                                                            <constraint firstAttribute="height" constant="75" id="YTF-yo-xZ2"/>
+                                                            <constraint firstAttribute="width" constant="75" id="htX-N1-Zn8"/>
                                                         </constraints>
-                                                    </view>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="+/-"/>
+                                                        <connections>
+                                                            <action selector="functionButtonTapped:" destination="Z6B-2e-5aY" eventType="touchUpInside" id="4NG-rN-oLj"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-yK-zNJ" customClass="ButtonView" customModule="CalculatorApp" customModuleProvider="target">
                                                         <rect key="frame" x="85" y="0.0" width="75" height="75"/>
                                                         <constraints>

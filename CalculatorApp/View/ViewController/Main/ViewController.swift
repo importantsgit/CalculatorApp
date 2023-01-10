@@ -27,20 +27,6 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @IBAction func functionButtonTapped(_ sender: UIButton) {
-        switch sender.tag {
-        //TODO: demical 버튼 수정하기
-        case 20: resultLabel.text = viewModel.demicalButtonTapped(number: resultLabel.text!)
-        case 30: backButtonTapped()
-        case 40: resultLabel.text = viewModel.setNegativeNumber(number: resultLabel.text!)
-        case 50:
-            viewModel.ClearNumber()
-            subTitleLabel.text = ""
-            resultLabel.text = ""
-        default: showAlert(withTitle: "41", message: "잘못된 버튼입니다.")
-        }
-    }
 }
 
 private extension ViewController {
@@ -48,13 +34,14 @@ private extension ViewController {
     // ViewModel로부터 받은 데이터를 UI에 가시화
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
-        let number = sender.currentTitle!
-        //MARK: new
-        if resultLabel.text! == "0" {
-            resultLabel.text = ""
+        if resultLabel.text!.count < 10 {
+            let number = sender.currentTitle!
+            if resultLabel.text! == "0" {
+                resultLabel.text = ""
+            }
+            setLabelFontSize()
+            resultLabel.text = resultLabel.text! + number
         }
-        resultLabel.text = resultLabel.text! + number
-        //resultLabel.text = viewModel.setInputNumber(number: number)
     }
     
     @IBAction func operButtonTapped(_ sender: UIButton) {
@@ -73,14 +60,31 @@ private extension ViewController {
     }
     
     func setOperButton(oper: Oper) {
-        resultLabel.text = ""
+        
         subTitleLabel.text = viewModel.setOperator(oper: oper)
+        resultLabel.text = ""
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
         viewModel.setInputNumber(number: resultLabel.text!)
         subTitleLabel.text = ""
         resultLabel.text = viewModel.returnResult()
+        setLabelFontSize()
+    }
+    
+    @IBAction func functionButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        //TODO: demical 버튼 수정하기
+        case 20: resultLabel.text = viewModel.demicalButtonTapped(number: resultLabel.text!)
+        case 30: backButtonTapped()
+        case 40: resultLabel.text = viewModel.setNegativeNumber(number: resultLabel.text!)
+        case 50:
+            viewModel.ClearNumber()
+            subTitleLabel.text = ""
+            resultLabel.text = ""
+        default: showAlert(withTitle: "41", message: "잘못된 버튼입니다.")
+        }
+        setLabelFontSize()
     }
     
     func backButtonTapped() {
@@ -93,6 +97,10 @@ private extension ViewController {
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alertController, animated: true)
         }
+    }
+    
+    func setLabelFontSize() {
+        resultLabel.font = resultLabel.text!.count < 5 ?.systemFont(ofSize: 40, weight: .bold) : .systemFont(ofSize: 32, weight: .bold)
     }
 }
 

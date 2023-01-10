@@ -154,9 +154,9 @@
 				7BED613C296681D600FF2AF5 /* AppDelegate.swift */,
 				7BED613E296681D600FF2AF5 /* SceneDelegate.swift */,
 				7BED61502966841F00FF2AF5 /* AppAppearance.swift */,
+				7BC9E267296D198700DE1544 /* DebugPoint.swift */,
 				7BED6145296681D600FF2AF5 /* Assets.xcassets */,
 				7BED614A296681D600FF2AF5 /* Info.plist */,
-				7BC9E267296D198700DE1544 /* DebugPoint.swift */,
 			);
 			path = CalculatorApp;
 			sourceTree = "<group>";
