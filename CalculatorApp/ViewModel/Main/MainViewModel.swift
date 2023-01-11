@@ -13,8 +13,6 @@ final class MainViewModel: NSObject {
     private var model = NumberModel()
     var showAlert: ((_ title: String,_ des: String)-> Void)?
     
-    //TODO: 없애기
-    
     func setInputNumber(number: String) { //-> String {
         if model.CheckCurrentNumber() == 0 {
             model.setPrevNumber(number: number)
@@ -27,6 +25,9 @@ final class MainViewModel: NSObject {
     
     //+- 바꾸기
     func setNegativeNumber(number: String) -> String {
+        if number.isEmpty {
+            return ""
+        }
         if number.contains(".") { // 소수
             return String(Double(number)! * -1)
         } else {
@@ -43,6 +44,8 @@ final class MainViewModel: NSObject {
         var number = number
         if number.contains(".") {
             AudioServicesPlaySystemSound(1106)
+        } else if number == "" {
+            number = "0."
         } else {
             number += "."
         }

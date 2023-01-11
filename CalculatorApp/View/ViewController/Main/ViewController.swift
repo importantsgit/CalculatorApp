@@ -24,14 +24,25 @@ final class ViewController: UIViewController {
     
     @IBOutlet weak var subTitleLabel: UILabel!
     
+    @IBOutlet weak var textView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLayout()
     }
+    
+
 }
 
 private extension ViewController {
     // 버튼 클릭시 ViewModel로 sender값 전달
     // ViewModel로부터 받은 데이터를 UI에 가시화
+    func setLayout() {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(backButtonTapped(_:)))
+        gesture.direction = .left
+        gesture.numberOfTouchesRequired = 1
+        textView.addGestureRecognizer(gesture)
+    }
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         if resultLabel.text!.count < 10 {
@@ -88,7 +99,19 @@ private extension ViewController {
     }
     
     func backButtonTapped() {
-        resultLabel.text = String(resultLabel.text!.dropLast(1))
+        let number = String(resultLabel.text!.dropLast(1))
+        if number == "-" {
+            resultLabel.text = ""
+        } else {
+            resultLabel.text = String(resultLabel.text!.dropLast(1))
+        }
+    }
+    
+    @objc func backButtonTapped(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left {
+            resultLabel.text = String(resultLabel.text!.dropLast(1))
+            setLabelFontSize()
+        }
     }
     
     func showAlert(withTitle title: String, message: String){
@@ -100,7 +123,7 @@ private extension ViewController {
     }
     
     func setLabelFontSize() {
-        resultLabel.font = resultLabel.text!.count < 5 ?.systemFont(ofSize: 40, weight: .bold) : .systemFont(ofSize: 32, weight: .bold)
+        resultLabel.font = resultLabel.text!.count < 5 ?.systemFont(ofSize: 44, weight: .bold) : .systemFont(ofSize: 32, weight: .bold)
     }
 }
 
